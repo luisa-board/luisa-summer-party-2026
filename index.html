@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LUISA Summer Theme Party 2026 · RSVP</title>
+<meta name="description" content="RSVP for the LUISA Summer Theme Party. Dance the night away." />
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #051405;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .outer {
+    max-width: 560px;
+    width: 100%;
+    background: linear-gradient(135deg, #DA0000 0%, #FFFFFF 50%, #239F40 100%);
+    border-radius: 22px;
+    padding: 4px;
+  }
+  .inner {
+    background: #0d1f0d;
+    border-radius: 18px;
+    padding: 28px 24px;
+    color: white;
+  }
+  h1 { margin: 0 0 8px; font-size: 28px; font-weight: 500; letter-spacing: -0.5px; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(90deg, #DA0000, #239F40);
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .subtitle { color: rgba(255,255,255,0.75); margin: 0; font-size: 14px; }
+  .header { text-align: center; margin-bottom: 22px; }
+  .meta-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+  }
+  .meta-label {
+    font-size: 11px;
+    color: #7FD68F;
+    margin: 0 0 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .meta-value { font-size: 14px; font-weight: 500; margin: 0; color: white; }
+  .form-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .progress-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .progress-text {
+    font-size: 11px;
+    color: rgba(255,255,255,0.65);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .progress-bar-bg {
+    background: rgba(255,255,255,0.12);
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .progress-bar-fill {
+    background: linear-gradient(90deg, #DA0000, #FFFFFF, #239F40);
+    height: 100%;
+    width: 33%;
+    transition: width 0.4s;
+    border-radius: 3px;
+  }
+  label { font-size: 13px; font-weight: 500; display: block; margin-bottom: 6px; color: white; }
+  label .hint { color: rgba(255,255,255,0.55); font-weight: 400; }
+  input[type="text"], input[type="email"], input[type="tel"], select {
+    width: 100%;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input:focus, select:focus { border-color: #DA0000; }
+  select option { background: #0d1f0d; }
+  .field { margin-bottom: 14px; }
+  .qr-block {
+    background: linear-gradient(135deg, rgba(218,0,0,0.15), rgba(35,159,64,0.15));
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 14px;
+    transition: opacity 0.3s;
+  }
+  .qr-locked { opacity: 0.4; pointer-events: none; }
+  .qr-title {
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0 0 4px;
+    color: #FFB3B3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .qr-sub { font-size: 12px; margin: 0 0 12px; color: rgba(255,255,255,0.75); }
+  .qr-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .qr-img-wrap {
+    background: white;
+    padding: 14px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 188px;
+    height: 188px;
+  }
+  .qr-img-wrap img { max-width: 100%; max-height: 100%; }
+  .qr-send-label {
+    font-size: 12px;
+    margin: 0;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+  .qr-amount { font-size: 32px; font-weight: 600; margin: 4px 0 0; color: white; text-align: center; }
+  .qr-recipient { font-size: 12px; margin: 4px 0 0; color: rgba(255,255,255,0.7); text-align: center; }
+  .warning-banner {
+    background: rgba(255,193,7,0.15);
+    border: 1px solid rgba(255,193,7,0.35);
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-top: 12px;
+  }
+  .warning-text { font-size: 11px; margin: 0; color: #FFD580; }
+  .manual-block {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 14px;
+    margin-bottom: 14px;
+    transition: opacity 0.3s;
+  }
+  .manual-prompt {
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 8px;
+    text-align: center;
+  }
+  button { cursor: pointer; font-family: inherit; }
+  .copy-btn {
+    width: 100%;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .manual-foot {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    margin: 6px 0 0;
+    text-align: center;
+  }
+  .confirm-block { transition: opacity 0.3s; }
+  .checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .checkbox-row input { margin-top: 3px; }
+  .gate-banner {
+    margin-top: 12px;
+    background: rgba(255,193,7,0.12);
+    border: 1px solid rgba(255,193,7,0.3);
+    border-radius: 10px;
+    padding: 10px 12px;
+    transition: all 0.3s;
+  }
+  .gate-banner.error {
+    background: rgba(244,67,54,0.12);
+    border-color: rgba(244,67,54,0.3);
+  }
+  .gate-banner.success {
+    background: rgba(76,175,80,0.15);
+    border-color: rgba(76,175,80,0.4);
+  }
+  .gate-text { font-size: 12px; margin: 0; color: #FFD580; }
+  .gate-banner.error .gate-text { color: #FFA8A0; }
+  .gate-banner.success .gate-text { color: #A8E6A3; }
+  .nav-row { display: flex; justify-content: space-between; margin-top: 20px; gap: 10px; }
+  .nav-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+  }
+  .nav-back {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+  }
+  .nav-next {
+    background: linear-gradient(90deg, #DA0000, #239F40);
+    color: white;
+  }
+  .nav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .footer-help {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    margin: 14px 0 0;
+  }
+  .footer-help a { color: #7FD68F; text-decoration: none; }
+  .footer-help a:hover { text-decoration: underline; }
+  .success-screen { text-align: center; padding: 30px 10px; }
+  .success-icon { font-size: 60px; margin-bottom: 16px; }
+  .success-title { font-size: 24px; margin: 0 0 8px; color: white; }
+  .success-msg { color: rgba(255,255,255,0.75); margin: 0 0 16px; font-size: 14px; }
+  .error-msg {
+    background: rgba(244,67,54,0.12);
+    border: 1px solid rgba(244,67,54,0.3);
+    border-radius: 8px;
+    padding: 10px;
+    color: #FFA8A0;
+    font-size: 13px;
+    margin-top: 10px;
+    display: none;
+  }
+  .conf-hint { font-size: 11px; color: rgba(255,255,255,0.55); margin: 6px 0 0; }
+</style>
+</head>
+<body>
+<div class="outer">
+  <div class="inner" id="form-container">
+
+    <div class="header">
+      <div class="badge">⚽ LUISA Summer 2026</div>
+      <h1>Summer Theme Party 🏆🎉</h1>
+      <p class="subtitle">Dance the night away 💃🕺 · Food 🍢 · Music 🎶 · Friends 🤝</p>
+    </div>
+
+    <div class="meta-card">
+      <div class="meta-grid">
+        <div>
+          <p class="meta-label">📅 Date</p>
+          <p class="meta-value">Fri, June 19</p>
+        </div>
+        <div>
+          <p class="meta-label">⏰ Time</p>
+          <p class="meta-value">7 PM – 12 AM</p>
+        </div>
+        <div>
+          <p class="meta-label">📍 Spot</p>
+          <p class="meta-value">Saucon Village CR</p>
+        </div>
+        <div>
+          <p class="meta-label">🎟️ From</p>
+          <p class="meta-value">$5</p>
+        </div>
+      </div>
+    </div>
+
+    <form id="rsvp-form" action="https://formspree.io/f/xqejovry" method="POST">
+      <div class="form-card">
+
+        <div class="progress-row">
+          <p class="progress-text">Step <span id="step-num">1</span> / 3</p>
+          <p class="progress-text" id="step-label">✨ Your info</p>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-bar"></div>
+        </div>
+
+        <!-- STEP 1 -->
+        <div id="step-1" class="step-panel">
+          <div class="field">
+            <label>👤 Full name</label>
+            <input id="f-name" name="name" type="text" placeholder="Your full name" oninput="checkStep1()" required />
+          </div>
+          <div class="field">
+            <label>📧 Lehigh email</label>
+            <input id="f-email" name="email" type="email" placeholder="yourname@lehigh.edu" oninput="checkStep1()" required />
+          </div>
+          <div class="field">
+            <label>📱 Phone <span class="hint">(for day-of updates)</span></label>
+            <input id="f-phone" name="phone" type="tel" placeholder="(610) 555-0123" oninput="checkStep1()" required />
+          </div>
+          <div class="field">
+            <label>🎓 You are a...</label>
+            <select name="affiliation" required>
+              <option>Lehigh undergraduate</option>
+              <option>Lehigh graduate</option>
+              <option>Lehigh faculty / staff</option>
+              <option>Lehigh alum</option>
+              <option>Community guest</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="step-2" class="step-panel" style="display:none;">
+          <div class="field">
+            <label>🎟️ Reservation type</label>
+            <select id="amount-select" name="reservation" onchange="updateAmount(); checkStep2()" required>
+              <option value="">— Select an option —</option>
+              <option value="5">$5 — just me 🙋</option>
+              <option value="10">$10 — me + 1 more 👯</option>
+              <option value="15">$15 — me + 2 more 🎊</option>
+            </select>
+          </div>
+
+          <div id="qr-block" class="qr-block qr-locked">
+            <p class="qr-title">📲 Scan to pay with Zelle</p>
+            <p class="qr-sub">Open your bank app's camera. Send the exact amount shown below. ⚡</p>
+            <div class="qr-wrap">
+              <div class="qr-img-wrap">
+                <img id="qr-image" src="qr-zelle.png" alt="Zelle QR code for Morteza Ghorashi" />
+              </div>
+              <div>
+                <p class="qr-send-label">Send exactly</p>
+                <p class="qr-amount" id="qr-amount">$0.00</p>
+                <p class="qr-recipient">to Morteza Ghorashi · 484-937-1251 💰</p>
+              </div>
+            </div>
+            <div class="warning-banner">
+              <p class="warning-text">⚠️ Important: enter <strong id="amount-reminder">$0</strong> manually in Zelle after scanning — the QR doesn't lock the amount.</p>
+            </div>
+          </div>
+
+          <div id="manual-block" class="manual-block qr-locked">
+            <p class="manual-prompt">Can't scan? Send manually 👇</p>
+            <button type="button" class="copy-btn" onclick="copyZelle()">
+              📋 <span id="copy-text">484-937-1251 · Tap to copy</span>
+            </button>
+            <p class="manual-foot">Put your full name in the Zelle memo. ✍️</p>
+          </div>
+
+          <div id="confirm-block" class="confirm-block qr-locked">
+            <div class="field">
+              <label>🔢 Zelle confirmation number</label>
+              <input id="f-conf" name="zelle_confirmation" type="text" placeholder="e.g. 2026061912345" oninput="checkStep2()" />
+              <p class="conf-hint">Must be at least 8 digits. Find it in your Zelle email or transaction history.</p>
+            </div>
+            <label class="checkbox-row">
+              <input id="f-check" name="payment_confirmed" type="checkbox" value="Yes" onchange="checkStep2()" />
+              <span>✅ I confirm I have sent the exact amount above via Zelle with my full name in the memo.</span>
+            </label>
+          </div>
+
+          <div id="gate-banner" class="gate-banner">
+            <p class="gate-text" id="gate-text">⏳ Select a reservation type to unlock payment.</p>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div id="step-3" class="step-panel" style="display:none;">
+          <div class="field">
+            <label class="checkbox-row">
+              <input name="volunteer" type="checkbox" value="Yes" />
+              <span style="font-weight:500;">🙌 Count me in to volunteer — setup, food, or cleanup</span>
+            </label>
+            <p class="conf-hint" style="margin-left:24px;">A board member will reach out closer to the date. 💌</p>
+          </div>
+          <div style="background: linear-gradient(135deg, rgba(255,193,7,0.15), rgba(218,0,0,0.15)); border: 1px solid rgba(255,193,7,0.3); border-radius: 10px; padding: 12px; margin-top: 16px;">
+            <p style="font-size: 12px; margin: 0; color: #FFD580;">⚠️ Reservations are non-refundable after June 14, but transferable to another guest.</p>
+          </div>
+          <div class="error-msg" id="error-msg"></div>
+        </div>
+
+        <div class="nav-row">
+          <button type="button" id="back-btn" class="nav-btn nav-back" onclick="changeStep(-1)" disabled>← Back</button>
+          <button type="button" id="next-btn" class="nav-btn nav-next" onclick="changeStep(1)" disabled>Next →</button>
+        </div>
+      </div>
+    </form>
+
+    <p class="footer-help">See you on the dance floor 🪩 · DM me on Telegram <a href="https://t.me/maral20173" target="_blank">@maral20173</a> 💬</p>
+  </div>
+</div>
+
+<script>
+  let currentStep = 1;
+  const totalSteps = 3;
+  const stepLabels = ['✨ Your info', '💸 Pay & confirm', '🎈 Final touches'];
+
+  // ============================================================
+  // CONFIGURATION
+  // ============================================================
+  const ZELLE_PHONE = '484-937-1251';
+  // ============================================================
+
+  function setNextEnabled(enabled) {
+    const btn = document.getElementById('next-btn');
+    btn.disabled = !enabled;
+  }
+
+  function checkStep1() {
+    const name = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const ok = name.length > 1 && email.includes('@') && phone.length >= 7;
+    setNextEnabled(ok);
+  }
+
+  function checkStep2() {
+    const amount = document.getElementById('amount-select').value;
+    const conf = document.getElementById('f-conf').value.trim();
+    const checked = document.getElementById('f-check').checked;
+    const confValid = /^\d{8,}$/.test(conf);
+
+    const qrBlock = document.getElementById('qr-block');
+    const manualBlock = document.getElementById('manual-block');
+    const confirmBlock = document.getElementById('confirm-block');
+    const gateBanner = document.getElementById('gate-banner');
+    const gateText = document.getElementById('gate-text');
+
+    gateBanner.classList.remove('error', 'success');
+
+    if (amount) {
+      qrBlock.classList.remove('qr-locked');
+      manualBlock.classList.remove('qr-locked');
+      confirmBlock.classList.remove('qr-locked');
+
+      if (!conf) {
+        gateText.innerHTML = '📲 Scan the QR, send $' + amount + ' via Zelle, then enter your confirmation number below.';
+      } else if (!confValid) {
+        gateText.innerHTML = '🔢 Confirmation number must be at least 8 digits — check your Zelle email.';
+        gateBanner.classList.add('error');
+      } else if (!checked) {
+        gateText.innerHTML = '✅ One last step — check the confirmation box below to continue.';
+      } else {
+        gateText.innerHTML = '🎉 Payment confirmed! Click Next to finish up.';
+        gateBanner.classList.add('success');
+      }
+    } else {
+      qrBlock.classList.add('qr-locked');
+      manualBlock.classList.add('qr-locked');
+      confirmBlock.classList.add('qr-locked');
+      gateText.innerHTML = '⏳ Select a reservation type to unlock payment.';
+    }
+
+    setNextEnabled(amount && confValid && checked);
+  }
+
+  function runStepCheck() {
+    if (currentStep === 1) checkStep1();
+    else if (currentStep === 2) checkStep2();
+    else setNextEnabled(true);
+  }
+
+  function changeStep(direction) {
+    const next = currentStep + direction;
+
+    if (next > totalSteps) {
+      submitForm();
+      return;
+    }
+    if (next < 1) return;
+
+    document.getElementById('step-' + currentStep).style.display = 'none';
+    currentStep = next;
+    document.getElementById('step-' + currentStep).style.display = 'block';
+    document.getElementById('step-num').textContent = currentStep;
+    document.getElementById('step-label').textContent = stepLabels[currentStep - 1];
+    document.getElementById('progress-bar').style.width = (currentStep / totalSteps * 100) + '%';
+
+    document.getElementById('back-btn').disabled = currentStep === 1;
+    document.getElementById('next-btn').innerHTML = currentStep === totalSteps ? 'Submit RSVP 🎉' : 'Next →';
+
+    runStepCheck();
+  }
+
+  function updateAmount() {
+    const val = document.getElementById('amount-select').value;
+    if (!val) {
+      document.getElementById('qr-amount').textContent = '$0.00';
+      document.getElementById('amount-reminder').textContent = '$0';
+      return;
+    }
+    document.getElementById('qr-amount').textContent = '$' + parseInt(val).toFixed(2);
+    document.getElementById('amount-reminder').textContent = '$' + val;
+  }
+
+  function copyZelle() {
+    navigator.clipboard?.writeText(ZELLE_PHONE);
+    const textEl = document.getElementById('copy-text');
+    textEl.textContent = 'Copied! ✓';
+    setTimeout(() => { textEl.textContent = ZELLE_PHONE + ' · Tap to copy'; }, 1500);
+  }
+
+  async function submitForm() {
+    const form = document.getElementById('rsvp-form');
+    const errorEl = document.getElementById('error-msg');
+    const nextBtn = document.getElementById('next-btn');
+    errorEl.style.display = 'none';
+    nextBtn.disabled = true;
+    nextBtn.innerHTML = 'Submitting...';
+
+    try {
+      const formData = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        showSuccess();
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      errorEl.textContent = '❌ Something went wrong. Please try again or DM @maral20173 on Telegram.';
+      errorEl.style.display = 'block';
+      nextBtn.disabled = false;
+      nextBtn.innerHTML = 'Submit RSVP 🎉';
+    }
+  }
+
+  function showSuccess() {
+    document.getElementById('form-container').innerHTML = `
+      <div class="success-screen">
+        <div class="success-icon">🎉</div>
+        <h1 class="success-title">You're in!</h1>
+        <p class="success-msg">We've got your RSVP. Morteza will verify your payment within 48 hours.</p>
+        <p class="success-msg">See you Fri, June 19 at 7 PM 🪩</p>
+        <p class="success-msg" style="margin-top: 20px; font-size: 12px;">Questions? DM <a href="https://t.me/maral20173" target="_blank" style="color: #7FD68F;">@maral20173</a> on Telegram 💬</p>
+      </div>
+    `;
+  }
+
+  checkStep1();
+</script>
+</body>
+</html>
