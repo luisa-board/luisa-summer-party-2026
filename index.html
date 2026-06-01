@@ -379,7 +379,7 @@
           <div id="confirm-block" class="confirm-block qr-locked">
             <div class="field">
               <label>🔢 Zelle confirmation number</label>
-              <input id="f-conf" name="zelle_confirmation" type="text" placeholder="e.g. 2026061912345" oninput="checkStep2()" />
+              <input id="f-conf" name="zelle_confirmation" type="text" placeholder="e.g. CONF20260619A12 or 2026061912345" oninput="checkStep2()" />
               <p class="conf-hint">Must be at least 8 digits. Find it in your Zelle email or transaction history.</p>
             </div>
             <label class="checkbox-row">
@@ -447,7 +447,7 @@
     const amount = document.getElementById('amount-select').value;
     const conf = document.getElementById('f-conf').value.trim();
     const checked = document.getElementById('f-check').checked;
-    const confValid = /^\d{8,}$/.test(conf);
+    const confValid = /^[a-zA-Z0-9]{8,}$/.test(conf);
 
     const qrBlock = document.getElementById('qr-block');
     const manualBlock = document.getElementById('manual-block');
@@ -465,7 +465,7 @@
       if (!conf) {
         gateText.innerHTML = '📲 Scan the QR, send $' + amount + ' via Zelle, then enter your confirmation number below.';
       } else if (!confValid) {
-        gateText.innerHTML = '🔢 Confirmation number must be at least 8 digits — check your Zelle email.';
+        gateText.innerHTML = '🔢 Confirmation number must be at least 8 characters (letters or numbers) — check your Zelle email.';
         gateBanner.classList.add('error');
       } else if (!checked) {
         gateText.innerHTML = '✅ One last step — check the confirmation box below to continue.';
